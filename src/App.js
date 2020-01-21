@@ -17,16 +17,8 @@ function App() {
 
   return (
     <Router>
-      <Route
-        exact
-        path="/"
-        render={props => <Login history={props.history} store={store} />}
-      />
-      <Route
-        exact
-        path="/admin"
-        render={props => <Admin history={props.history} store={store} />}
-      />
+      <Route exact path="/" render={props => <Login store={store} />} />
+      <Route exact path="/admin" render={props => <Admin store={store} />} />
       <Route path="/logout" component={Logout} />
     </Router>
   );

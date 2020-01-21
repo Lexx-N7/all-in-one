@@ -1,8 +1,7 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export default function Logout() {
-
   return (
     <>
       <h1>Log out page</h1>

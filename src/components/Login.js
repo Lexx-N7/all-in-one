@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 
-export default function Login({ store,history }) {
+export default function Login({ store }) {
   let [state, setState] = useState({
     username: "",
-    password: ""
+    password: "",
+    isLoggedIn: false
   });
 
   useEffect(() => {
-    store("get") && history.push('/admin')
+    store("get") && setState({ isLoggedIn: true });
   }, [store]);
 
   let handleChange = e => {
@@ -18,10 +20,12 @@ export default function Login({ store,history }) {
   let handleSubmit = e => {
     e.preventDefault();
     if (state.username === "abc" && state.password === "123") {
-      store("set");
-      history.push('/admin')
+        setState({ isLoggedIn: true });
+        store("set");
     }
   };
+
+  if (state.isLoggedIn) return <Redirect to="/admin" />;
 
   return (
     <form onSubmit={handleSubmit}>
