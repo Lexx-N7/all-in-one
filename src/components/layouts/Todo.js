@@ -12,7 +12,7 @@ export default function Todo({ todo }) {
 
   return (
     <div className="m-3">
-      <input type="checkbox" onChange={()=>markTodo(todo.id) } checked={todo.completed}/>
+      <input type="checkbox" onChange={()=>markTodo(todo) } checked={todo.completed}/>
       <span
         className="bg-primary text-white p-2 font-weight-bold lead"
         style={styleTodo()}

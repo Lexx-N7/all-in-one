@@ -41,14 +41,20 @@ export default function MyProvider({ children }) {
     getData();
   };
 
-  let handleMarkTodo = id => {
-    let todos = state.todos.map(todo => {
-      if (todo.id == id) {
-        todo.completed = !todo.completed;
-      }
-      return todo;
-    });
-    setState({ todos });
+  let handleMarkTodo = todo => {
+    // let todos = state.todos.map(todo => {
+    //   if (todo.id == id) {
+    //     todo.completed = !todo.completed;
+    //   }
+    //   return todo;
+    // });
+    // setState({ todos });
+
+    let todos = [...state.todos]         //not referencing way
+    let index = todos.indexOf(todo)
+    todos[index] = {...todo}
+    todos[index].completed = !todos[index].completed
+    setState({todos})
   };
 
   return (
