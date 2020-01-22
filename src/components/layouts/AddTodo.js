@@ -12,6 +12,7 @@ export default function AddTodo() {
 
   let handleSubmit = e => {
     e.preventDefault();
+    if(field.title === '') return
     addTodo(field.title);
     setField({...field,title: ''})
   };
